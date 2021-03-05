@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">HomeUi</string>
+    <string name="main">咸鱼</string>
+    <string name="fish_pond">鱼塘</string>
+    <string name="publish">发布</string>
+    <string name="message">消息</string>
+    <string name="mine">我的</string>
 </resources>
