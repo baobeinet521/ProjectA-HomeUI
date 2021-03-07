@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,137 +10,178 @@
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_layout" />
+        android:layout_above="@id/bottom_layout"
+        android:visibility="gone"/>
 
+    <Button
+        android:id="@+id/test_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="去测试页面一">
+
+    </Button>
     <LinearLayout
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
         android:background="#9BE2E6"
-       android:layout_alignParentBottom="true"
-        android:clipChildren="false">
+        android:clipChildren="false"
+        android:orientation="horizontal">
 
         <RelativeLayout
+            android:id="@+id/home_relative_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center">
+
             <LinearLayout
+                android:id="@+id/home_linear_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical">
+
                 <ImageView
+                    android:id="@+id/home_image"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/home_drawable">
 
                 </ImageView>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textSize="@dimen/home_tab_text_size"
-                    android:text="@string/main"></TextView>
+                    android:text="@string/main"
+                    android:textSize="@dimen/home_tab_text_size"></TextView>
             </LinearLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/active_relative_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center">
+
             <LinearLayout
+                android:id="@+id/active_linear_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical">
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/active_drawable">
 
-            </ImageView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textSize="@dimen/home_tab_text_size"
-                android:text="@string/fish_pond"></TextView>
+                <ImageView
+                    android:id="@+id/active_image"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/active_drawable">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/fish_pond"
+                    android:textSize="@dimen/home_tab_text_size"></TextView>
             </LinearLayout>
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/publish_relative_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center">
+
             <LinearLayout
+                android:id="@+id/publish_linear_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical">
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/publish_drawable">
 
-            </ImageView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textSize="@dimen/home_tab_text_size"
-                android:text="@string/publish"></TextView>
+                <ImageView
+                    android:id="@+id/publish_image"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/publish_drawable">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/publish"
+                    android:textSize="@dimen/home_tab_text_size"></TextView>
             </LinearLayout>
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/message_relative_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center">
+
             <LinearLayout
+                android:id="@+id/message_linear_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical">
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/message_drawable">
 
-            </ImageView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textSize="@dimen/home_tab_text_size"
-                android:text="@string/message"></TextView>
+                <ImageView
+                    android:id="@+id/message_image"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/message_drawable">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/message"
+                    android:textSize="@dimen/home_tab_text_size"></TextView>
             </LinearLayout>
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/mine_relative_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center">
+
             <LinearLayout
+                android:id="@+id/mine_linear_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical">
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/mine_drawable">
 
-            </ImageView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textSize="@dimen/home_tab_text_size"
-                android:text="@string/mine"></TextView>
+                <ImageView
+                    android:id="@+id/mine_image"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/mine_drawable">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/mine"
+                    android:textSize="@dimen/home_tab_text_size"></TextView>
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
