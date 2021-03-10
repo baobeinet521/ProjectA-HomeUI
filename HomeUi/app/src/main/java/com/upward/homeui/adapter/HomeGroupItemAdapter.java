@@ -22,13 +22,10 @@ import java.util.List;
 public class HomeGroupItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements showMoreInterface {
     private Context mContext;
     private List<ItemData> mItemDatas;
-    private List<HomeDataBean> mHomeDatas;
-    private int mHeaderPosition;
+    private boolean isShowAll = false;
 
-    public HomeGroupItemAdapter(List<HomeDataBean> homeDatas, int position) {
-        this.mHomeDatas = homeDatas;
-        mItemDatas = mHomeDatas.get(position).mItemData;
-        this.mHeaderPosition = position;
+    public HomeGroupItemAdapter(List<ItemData> datas) {
+        mItemDatas = datas;
     }
 
     @NonNull
@@ -43,24 +40,23 @@ public class HomeGroupItemAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        Log.e("test", "onBindViewHolder == ");
         if (holder instanceof ItemHolder) {
             ((ItemHolder) holder).mTitleTv.setText(mItemDatas.get(position).name);
             ((ItemHolder) holder).mMessageTv.setText(mItemDatas.get(position).description);
-            if(mHomeDatas != null){
-                if(mHomeDatas.get(mHeaderPosition).isShowMore()){
+            if (isShowAll) {
+                Log.e("test", " onBindViewHolder isShowAll    =  " + isShowAll);
+                if (mItemDatas.get(position).isShow) {
+                    Log.e("test", "  isShowMore   全部显示    mHeaderPosition =  ");
                     ((ItemHolder) holder).itemView.setVisibility(View.VISIBLE);
-                }else {
-                    if(mItemDatas.size() > 2){
-                        ((ItemHolder) holder).itemView.setVisibility(View.GONE);
-                    }else{
-                        ((ItemHolder) holder).itemView.setVisibility(View.VISIBLE);
-                    }
+                } else {
+                    ((ItemHolder) holder).itemView.setVisibility(View.GONE);
                 }
-
-            }else{
-                if(position > 2){
+//
+            } else {
+                if (position > 2) {
                     ((ItemHolder) holder).wholeLayout.setVisibility(View.GONE);
-                }else{
+                } else {
                     ((ItemHolder) holder).wholeLayout.setVisibility(View.VISIBLE);
                 }
             }
@@ -75,20 +71,25 @@ public class HomeGroupItemAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public int getItemCount() {
-        if (mItemDatas == null) {
-            return 0;
+        if (isShowAll) {
+            return mItemDatas.size();
+        } else {
+            if (mItemDatas.size() > 3) {
+                return 3;
+            } else {
+                return mItemDatas.size();
+            }
         }
-        return mItemDatas.size();
     }
 
     @Override
-    public void showMore(List<HomeDataBean> datas, int position) {
-        Log.e("test", "  showMore ===  show  " + datas.get(position).isShowMore());
-        this.mHomeDatas = datas;
-        this.mHeaderPosition = position;
-        mItemDatas = mHomeDatas.get(position).mItemData;
+    public void showMore(List<ItemData> datas, boolean showAll) {
+        Log.e("test", " 子item  showMore   show  " + showAll);
+        isShowAll = showAll;
+        mItemDatas = datas;
         notifyDataSetChanged();
     }
+
 
     private static class ItemHolder extends RecyclerView.ViewHolder {
         LinearLayout wholeLayout;

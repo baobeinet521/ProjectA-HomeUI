@@ -31,8 +31,9 @@
 
     <ImageView
         android:id="@+id/more_image"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#89065420"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/line_view"
         app:layout_constraintRight_toRightOf="parent"
@@ -45,4 +46,10 @@
         android:layout_height="1dp"
         android:background="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/address_layout"></View>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/group_item_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/line_view"
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

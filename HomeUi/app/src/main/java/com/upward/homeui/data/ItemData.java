@@ -4,6 +4,7 @@ public class ItemData {
     public int dataType;
     public String name;
     public String description;
+    public boolean isShow;
 
     public int getDataType() {
         return dataType;
@@ -27,5 +28,13 @@ public class ItemData {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isShow() {
+        return isShow;
+    }
+
+    public void setShow(boolean show) {
+        isShow = show;
     }
 }

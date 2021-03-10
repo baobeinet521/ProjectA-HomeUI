@@ -51,107 +51,208 @@ public class TestActivity extends AppCompatActivity {
         recycleView.setAdapter(recycleAdapter);
     }
 
-    public void getData(){
+    public void getData() {
         listData = new ArrayList<>();
 
         HomeDataBean mHomeDataBean = new HomeDataBean();
         mHomeDataBean.setDataType(HomeDataAdapter.ITEM_HEADER);
         mHomeDataBean.setAddress("shanghai");
-        mHomeDataBean.setShowMore(false);
-        listData.add(mHomeDataBean);
+        mHomeDataBean.setShowAll(false);
 
-        HomeDataBean mHomeDataBean1 = new HomeDataBean();
-        mHomeDataBean1.setDataType(HomeDataAdapter.ITEM_DATA);
+
+//        mHomeDataBean.setDataType(HomeDataAdapter.ITEM_DATA);
         List<ItemData> itemData1 = new ArrayList<>();
-        for (int i = 0;i < 3;i++){
+        for (int i = 0; i < 3; i++) {
             ItemData mItemData = new ItemData();
-            mItemData.setName("张三"+(i + 1));
+            mItemData.setDataType(HomeDataAdapter.ITEM_DATA);
+            mItemData.setName("张三" + (i + 1));
             mItemData.setDescription("张三是一个好人啊");
+            if (i < 3) {
+                mItemData.setShow(true);
+            } else {
+                mItemData.setShow(false);
+            }
             itemData1.add(mItemData);
         }
-        mHomeDataBean1.setmItemData(itemData1);
-        listData.add(mHomeDataBean1);
+        mHomeDataBean.setmItemData(itemData1);
+
+        listData.add(mHomeDataBean);
+
+//        HomeDataBean mHomeDataBean1 = new HomeDataBean();
+//        mHomeDataBean1.setDataType(HomeDataAdapter.ITEM_DATA);
+//        List<ItemData> itemData1 = new ArrayList<>();
+//        for (int i = 0; i < 3; i++) {
+//            ItemData mItemData = new ItemData();
+//            mItemData.setName("张三" + (i + 1));
+//            mItemData.setDescription("张三是一个好人啊");
+//            if (i < 3) {
+//                mItemData.setShow(true);
+//            } else {
+//                mItemData.setShow(false);
+//            }
+//            itemData1.add(mItemData);
+//        }
+//        mHomeDataBean1.setmItemData(itemData1);
+//        listData.add(mHomeDataBean1);
 
 
         HomeDataBean mHomeDataBean2 = new HomeDataBean();
-        mHomeDataBean2.setDataType(HomeDataAdapter.ITEM_HEADER);
+//        mHomeDataBean2.setDataType(HomeDataAdapter.ITEM_HEADER);
         mHomeDataBean2.setAddress("beijing");
-        mHomeDataBean2.setShowMore(false);
-        listData.add(mHomeDataBean2);
+        mHomeDataBean2.setShowAll(false);
 
-        HomeDataBean mHomeDataBean3 = new HomeDataBean();
-        mHomeDataBean3.setDataType(HomeDataAdapter.ITEM_DATA);
+//        mHomeDataBean2.setDataType(HomeDataAdapter.ITEM_DATA);
         List<ItemData> itemData2 = new ArrayList<>();
-        for (int i = 0;i < 5;i++){
+        for (int i = 0; i < 5; i++) {
             ItemData mItemData = new ItemData();
-            mItemData.setName("张四"+(i + 1));
+            mItemData.setDataType(HomeDataAdapter.ITEM_DATA);
+            mItemData.setName("张四" + (i + 1));
             mItemData.setDescription("张三四是一个好人啊");
+            if (i < 3) {
+                mItemData.setShow(true);
+            } else {
+                mItemData.setShow(false);
+            }
             itemData2.add(mItemData);
         }
-        mHomeDataBean3.setmItemData(itemData2);
-        listData.add(mHomeDataBean3);
+        mHomeDataBean2.setmItemData(itemData2);
 
+        listData.add(mHomeDataBean2);
 
+//        HomeDataBean mHomeDataBean3 = new HomeDataBean();
+//        mHomeDataBean3.setDataType(HomeDataAdapter.ITEM_DATA);
+//        List<ItemData> itemData2 = new ArrayList<>();
+//        for (int i = 0; i < 5; i++) {
+//            ItemData mItemData = new ItemData();
+//            mItemData.setName("张四" + (i + 1));
+//            mItemData.setDescription("张三四是一个好人啊");
+//            if (i < 3) {
+//                mItemData.setShow(true);
+//            } else {
+//                mItemData.setShow(false);
+//            }
+//            itemData2.add(mItemData);
+//        }
+//        mHomeDataBean3.setmItemData(itemData2);
+//        listData.add(mHomeDataBean3);
 
 
         HomeDataBean mHomeDataBean4 = new HomeDataBean();
-        mHomeDataBean4.setDataType(HomeDataAdapter.ITEM_HEADER);
+//        mHomeDataBean4.setDataType(HomeDataAdapter.ITEM_HEADER);
         mHomeDataBean4.setAddress("sichuan");
-        mHomeDataBean4.setShowMore(false);
-        listData.add(mHomeDataBean4);
+        mHomeDataBean4.setShowAll(false);
 
-        HomeDataBean mHomeDataBean5 = new HomeDataBean();
-        mHomeDataBean5.setDataType(HomeDataAdapter.ITEM_DATA);
+//        mHomeDataBean4.setDataType(HomeDataAdapter.ITEM_DATA);
         List<ItemData> itemData3 = new ArrayList<>();
-        for (int i = 0;i < 5;i++){
+        for (int i = 0; i < 6; i++) {
             ItemData mItemData = new ItemData();
-            mItemData.setName("王五"+(i + 1));
+            mItemData.setDataType(HomeDataAdapter.ITEM_DATA);
+            mItemData.setName("王五" + (i + 1));
             mItemData.setDescription("王五 是一个好人啊");
+            if (i < 3) {
+                mItemData.setShow(true);
+            } else {
+                mItemData.setShow(false);
+            }
             itemData3.add(mItemData);
         }
-        mHomeDataBean5.setmItemData(itemData3);
-        listData.add(mHomeDataBean5);
+        mHomeDataBean4.setmItemData(itemData3);
 
+        listData.add(mHomeDataBean4);
 
+//        HomeDataBean mHomeDataBean5 = new HomeDataBean();
+//        mHomeDataBean5.setDataType(HomeDataAdapter.ITEM_DATA);
+//        List<ItemData> itemData3 = new ArrayList<>();
+//        for (int i = 0; i < 6; i++) {
+//            ItemData mItemData = new ItemData();
+//            mItemData.setName("王五" + (i + 1));
+//            mItemData.setDescription("王五 是一个好人啊");
+//            if (i < 3) {
+//                mItemData.setShow(true);
+//            } else {
+//                mItemData.setShow(false);
+//            }
+//            itemData3.add(mItemData);
+//        }
+//        mHomeDataBean5.setmItemData(itemData3);
+//        listData.add(mHomeDataBean5);
 
 
         HomeDataBean mHomeDataBean7 = new HomeDataBean();
-        mHomeDataBean7.setDataType(HomeDataAdapter.ITEM_HEADER);
+//        mHomeDataBean7.setDataType(HomeDataAdapter.ITEM_HEADER);
         mHomeDataBean7.setAddress("chengdou");
-        mHomeDataBean7.setShowMore(false);
-        listData.add(mHomeDataBean7);
-
-        HomeDataBean mHomeDataBean6 = new HomeDataBean();
-        mHomeDataBean6.setDataType(HomeDataAdapter.ITEM_DATA);
+        mHomeDataBean7.setShowAll(false);
+//        mHomeDataBean7.setDataType(HomeDataAdapter.ITEM_DATA);
         List<ItemData> itemData4 = new ArrayList<>();
-        for (int i = 0;i < 6;i++){
+        for (int i = 0; i < 7; i++) {
             ItemData mItemData = new ItemData();
-            mItemData.setName("是的啊"+(i + 1));
+            mItemData.setDataType(HomeDataAdapter.ITEM_DATA);
+            mItemData.setName("是的啊" + (i + 1));
             mItemData.setDescription("是的啊 是一个好人啊");
+            if (i < 3) {
+                mItemData.setShow(true);
+            } else {
+                mItemData.setShow(false);
+            }
             itemData4.add(mItemData);
         }
-        mHomeDataBean6.setmItemData(itemData4);
-        listData.add(mHomeDataBean6);
+        mHomeDataBean7.setmItemData(itemData4);
+        listData.add(mHomeDataBean7);
 
-
+//        HomeDataBean mHomeDataBean6 = new HomeDataBean();
+//        mHomeDataBean6.setDataType(HomeDataAdapter.ITEM_DATA);
+//        List<ItemData> itemData4 = new ArrayList<>();
+//        for (int i = 0; i < 7; i++) {
+//            ItemData mItemData = new ItemData();
+//            mItemData.setName("是的啊" + (i + 1));
+//            mItemData.setDescription("是的啊 是一个好人啊");
+//            if (i < 3) {
+//                mItemData.setShow(true);
+//            } else {
+//                mItemData.setShow(false);
+//            }
+//            itemData4.add(mItemData);
+//        }
+//        mHomeDataBean6.setmItemData(itemData4);
+//        listData.add(mHomeDataBean6);
 
 
         HomeDataBean mHomeDataBean8 = new HomeDataBean();
-        mHomeDataBean8.setDataType(HomeDataAdapter.ITEM_HEADER);
+//        mHomeDataBean8.setDataType(HomeDataAdapter.ITEM_HEADER);
         mHomeDataBean8.setAddress("chongqing");
-        mHomeDataBean8.setShowMore(false);
-        listData.add(mHomeDataBean8);
-
-        HomeDataBean mHomeDataBean9 = new HomeDataBean();
-        mHomeDataBean9.setDataType(HomeDataAdapter.ITEM_DATA);
+        mHomeDataBean8.setShowAll(false);
+//        mHomeDataBean9.setDataType(HomeDataAdapter.ITEM_DATA);
         List<ItemData> itemData5 = new ArrayList<>();
-        for (int i = 0;i < 7;i++){
+        for (int i = 0; i < 8; i++) {
             ItemData mItemData = new ItemData();
+            mItemData.setDataType(HomeDataAdapter.ITEM_DATA);
             mItemData.setName("刘思钰" + (i + 1));
             mItemData.setDescription("刘思钰 是个乖宝宝啊");
+            if (i < 3) {
+                mItemData.setShow(true);
+            } else {
+                mItemData.setShow(false);
+            }
             itemData5.add(mItemData);
         }
-        mHomeDataBean9.setmItemData(itemData5);
-        listData.add(mHomeDataBean9);
+        mHomeDataBean8.setmItemData(itemData5);
+        listData.add(mHomeDataBean8);
+
+//        HomeDataBean mHomeDataBean9 = new HomeDataBean();
+//        mHomeDataBean9.setDataType(HomeDataAdapter.ITEM_DATA);
+//        List<ItemData> itemData5 = new ArrayList<>();
+//        for (int i = 0; i < 8; i++) {
+//            ItemData mItemData = new ItemData();
+//            mItemData.setName("刘思钰" + (i + 1));
+//            mItemData.setDescription("刘思钰 是个乖宝宝啊");
+//            if (i < 3) {
+//                mItemData.setShow(true);
+//            } else {
+//                mItemData.setShow(false);
+//            }
+//            itemData5.add(mItemData);
+//        }
+//        mHomeDataBean9.setmItemData(itemData5);
+//        listData.add(mHomeDataBean9);
     }
 }

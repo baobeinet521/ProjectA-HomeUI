@@ -6,7 +6,7 @@ public class HomeDataBean {
     public List<ItemData> mItemData;
     public int dataType;
     public String address;
-    public boolean showMore;
+    public boolean isShowAll;
 
     public int getDataType() {
         return dataType;
@@ -32,12 +32,12 @@ public class HomeDataBean {
         this.mItemData = mItemData;
     }
 
-    public boolean isShowMore() {
-        return showMore;
+    public boolean isShowAll() {
+        return isShowAll;
     }
 
-    public void setShowMore(boolean showMore) {
-        this.showMore = showMore;
+    public void setShowAll(boolean showAll) {
+        this.isShowAll = showAll;
     }
 }
 
