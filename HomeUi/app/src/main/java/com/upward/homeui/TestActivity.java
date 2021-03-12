@@ -9,9 +9,11 @@ import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.upward.homeui.Utils.DealDataUtils;
 import com.upward.homeui.adapter.HomeDataAdapter;
 import com.upward.homeui.data.HomeDataBean;
 import com.upward.homeui.data.ItemData;
+import com.upward.homeui.data.ShowHomeData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +48,9 @@ public class TestActivity extends AppCompatActivity {
         //设置为垂直布局，这也是默认的
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         getData();
-        recycleAdapter = new HomeDataAdapter(listData);
+        List<ShowHomeData> datas = DealDataUtils.showData(listData);
+        recycleAdapter = new HomeDataAdapter(listData,datas);
+        recycleAdapter.setHasStableIds(true);
         //设置Adapter
         recycleView.setAdapter(recycleAdapter);
     }
@@ -255,4 +259,7 @@ public class TestActivity extends AppCompatActivity {
 //        mHomeDataBean9.setmItemData(itemData5);
 //        listData.add(mHomeDataBean9);
     }
+
+
+
 }

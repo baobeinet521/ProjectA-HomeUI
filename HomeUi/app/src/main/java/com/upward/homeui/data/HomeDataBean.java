@@ -3,10 +3,10 @@ package com.upward.homeui.data;
 import java.util.List;
 
 public class HomeDataBean {
-    public List<ItemData> mItemData;
-    public int dataType;
-    public String address;
-    public boolean isShowAll;
+    private List<ItemData> mItemData;
+    private int dataType;
+    private String address;
+    private boolean isShowAll;
 
     public int getDataType() {
         return dataType;

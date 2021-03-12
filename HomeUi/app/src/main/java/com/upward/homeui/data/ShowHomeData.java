@@ -1,10 +1,12 @@
 package com.upward.homeui.data;
 
-public class ItemData {
+public class ShowHomeData {
     private int dataType;
+    private String address;
+
     private String name;
     private String description;
-    private boolean isShow;
+
 
     public int getDataType() {
         return dataType;
@@ -12,6 +14,14 @@ public class ItemData {
 
     public void setDataType(int dataType) {
         this.dataType = dataType;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getName() {
@@ -28,13 +38,5 @@ public class ItemData {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public boolean isShow() {
-        return isShow;
-    }
-
-    public void setShow(boolean show) {
-        isShow = show;
     }
 }
