@@ -132,14 +132,12 @@ public class HomeDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         ImageView mapImage;
         TextView mAddressTv;
         ImageView mMoreImage;
-        RecyclerView mItemDataRecycleView;
 
         public headerViewHolder(@NonNull View itemView) {
             super(itemView);
             mapImage = itemView.findViewById(R.id.map_image);
             mAddressTv = itemView.findViewById(R.id.address_text);
             mMoreImage = itemView.findViewById(R.id.more_image);
-            mItemDataRecycleView = itemView.findViewById(R.id.group_item_recycler);
         }
     }
 

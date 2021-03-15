@@ -1,6 +1,9 @@
 package com.upward.homeui;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,14 +26,12 @@ import butterknife.ButterKnife;
 
 public class TestActivity extends AppCompatActivity {
 
-    @BindView(R.id.title)
-    TextView title;
     @BindView(R.id.recycle_view)
     RecyclerView recycleView;
     @BindView(R.id.nested_scroll_view)
     NestedScrollView nestedScrollView;
-    @BindView(R.id.bottom_layout)
-    RelativeLayout bottomLayout;
+
+    public static String TAG = "TestActivity";
 
     private HomeDataAdapter recycleAdapter;
     private List<HomeDataBean> listData;
@@ -41,7 +42,6 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.test_layout);
         ButterKnife.bind(this);
 
-//        recycleView.setNestedScrollingEnabled(false);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         //设置布局管理器
         recycleView.setLayoutManager(layoutManager);
@@ -49,10 +49,42 @@ public class TestActivity extends AppCompatActivity {
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         getData();
         List<ShowHomeData> datas = DealDataUtils.showData(listData);
-        recycleAdapter = new HomeDataAdapter(listData,datas);
+        recycleAdapter = new HomeDataAdapter(listData, datas);
         recycleAdapter.setHasStableIds(true);
         //设置Adapter
         recycleView.setAdapter(recycleAdapter);
+
+        nestedScrollView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                return false;
+            }
+        });
+
+        nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (scrollY > oldScrollY) {
+                    Log.e(TAG, "下滑");
+                    int top = nestedScrollView.getTop();
+                    if(top > 0){
+                        int offset = scrollY - oldScrollY;
+                        Log.e(TAG, "下滑距离  " + offset);
+                    }
+                }
+                if (scrollY < oldScrollY) {
+                    Log.e(TAG, "上滑");
+                }
+                if (scrollY == 0) {
+                    Log.e(TAG, "滑倒顶部");
+                }
+                if (scrollY == (v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight())) {
+                    Log.e(TAG, "滑倒底部");
+                }
+            }
+        });
     }
 
     public void getData() {
@@ -259,7 +291,6 @@ public class TestActivity extends AppCompatActivity {
 //        mHomeDataBean9.setmItemData(itemData5);
 //        listData.add(mHomeDataBean9);
     }
-
 
 
 }
