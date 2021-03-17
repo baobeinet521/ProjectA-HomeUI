@@ -1,11 +1,13 @@
 package com.upward.homeui.data;
 
+import java.util.List;
+
 public class ShowHomeData {
     private int dataType;
     private String address;
 
     private String name;
-    private String description;
+    private List<String> messages;
 
 
     public int getDataType() {
@@ -32,11 +34,11 @@ public class ShowHomeData {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public List<String> getMessages() {
+        return messages;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setMessages(List<String> messages) {
+        this.messages = messages;
     }
 }

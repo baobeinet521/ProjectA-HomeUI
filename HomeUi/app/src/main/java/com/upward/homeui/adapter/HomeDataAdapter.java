@@ -1,26 +1,30 @@
 package com.upward.homeui.adapter;
 
 import android.content.Context;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewSwitcher;
 
 import androidx.annotation.NonNull;;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.upward.homeui.Animation.TextSwitcherAnimation;
 import com.upward.homeui.R;
 import com.upward.homeui.Utils.DealDataUtils;
 import com.upward.homeui.data.HomeDataBean;
 import com.upward.homeui.data.ItemData;
 import com.upward.homeui.data.ShowHomeData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -81,11 +85,24 @@ public class HomeDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             });
         } else if (holder instanceof ItemHolder) {
             ((ItemHolder) holder).mTitleTv.setText(mShowDatas.get(position).getName());
-            ((ItemHolder) holder).mMessageTv.setText(mShowDatas.get(position).getDescription());
+            List<String> texts = mShowDatas.get(position).getMessages();
+            if(((ItemHolder) holder).mMessageTv.getChildCount() < 2){
+                if(texts != null && texts.size() > 0){
+                    ((ItemHolder) holder).mMessageTv.setFactory(new ViewSwitcher.ViewFactory() {
+                        @Override
+                        public View makeView() {
+                            TextView tv = new TextView(mContext);
+                            return tv;
+                        }
+                    });
+                }
+            }
+            new TextSwitcherAnimation(((ItemHolder) holder).mMessageTv,texts).create();
         }
 
 
     }
+
 
     public void dealData(int homePosition){
         boolean showAll = mListDatas.get(homePosition).isShowAll();
@@ -145,7 +162,7 @@ public class HomeDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         LinearLayout wholeLayout;
         TextView mTitleTv;
         ImageView mImageViews;
-        TextView mMessageTv;
+        TextSwitcher mMessageTv;
         ImageView mImageViewNew;
 
         public ItemHolder(@NonNull View itemView) {
