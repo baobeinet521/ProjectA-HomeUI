@@ -14,6 +14,7 @@ import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import androidx.annotation.NonNull;;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
@@ -85,6 +86,22 @@ public class HomeDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             });
         } else if (holder instanceof ItemHolder) {
             ((ItemHolder) holder).mTitleTv.setText(mShowDatas.get(position).getName());
+
+
+            LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(mContext){
+                @Override
+                public boolean canScrollHorizontally() {
+                    return false;
+                }
+            };
+            //设置布局管理器
+            ((ItemHolder) holder).mImageRecyclerView.setLayoutManager(mLinearLayoutManager);
+            //设置为垂直布局，这也是默认的
+            mLinearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
+            List<String> images = DealDataUtils.mockAvatarList();
+            HomeItemImageAdapter mHomeItemImageAdapter = new HomeItemImageAdapter(images);
+            ((ItemHolder) holder).mImageRecyclerView.setAdapter(mHomeItemImageAdapter);
+
             List<String> texts = mShowDatas.get(position).getMessages();
             if(((ItemHolder) holder).mMessageTv.getChildCount() < 2){
                 if(texts != null && texts.size() > 0){
@@ -162,6 +179,7 @@ public class HomeDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         LinearLayout wholeLayout;
         TextView mTitleTv;
         ImageView mImageViews;
+        RecyclerView mImageRecyclerView;
         TextSwitcher mMessageTv;
         ImageView mImageViewNew;
 
@@ -170,6 +188,7 @@ public class HomeDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             wholeLayout = itemView.findViewById(R.id.item_whole_layout);
             mTitleTv = itemView.findViewById(R.id.title_text);
             mImageViews = itemView.findViewById(R.id.images_view);
+            mImageRecyclerView = itemView.findViewById(R.id.group_image_recyclerView);
             mMessageTv = itemView.findViewById(R.id.message_now);
             mImageViewNew = itemView.findViewById(R.id.image_new);
         }

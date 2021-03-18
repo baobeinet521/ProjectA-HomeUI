@@ -193,7 +193,7 @@ public class DealDataUtils {
     }
 
 
-    private void mockAvatarList() {
+    public static List<String> mockAvatarList() {
         List<String> avatarList = new ArrayList<>();
         avatarList.add("https://b-ssl.duitang.com/uploads/item/201811/04/20181104223950_vygmz.thumb.700_0.jpeg");
         avatarList.add("https://b-ssl.duitang.com/uploads/item/201807/11/20180711091152_FakCJ.thumb.700_0.jpeg");
@@ -204,5 +204,6 @@ public class DealDataUtils {
         avatarList.add("https://b-ssl.duitang.com/uploads/item/201811/04/20181104223950_vygmz.thumb.700_0.jpeg");
         avatarList.add("https://b-ssl.duitang.com/uploads/item/201807/11/20180711091152_FakCJ.thumb.700_0.jpeg");
         avatarList.add("https://b-ssl.duitang.com/uploads/item/201811/04/20181104223952_zfhli.thumb.700_0.jpeg");
+        return avatarList;
     }
 }

@@ -39,5 +39,14 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
     implementation 'com.google.code.gson:gson:2.8.0'
+//    implementation 'com.facebook.fresco:animated-base-support: 0.14.1' // 在 API < 14 上的机器支持 WebP 时添加
+
+    implementation 'com.facebook.fresco:fresco:0.14.1'
+
+    implementation 'com.facebook.fresco:animated-webp:0.14.1' //支持 WebP动图时添加
+
+    implementation 'com.facebook.fresco:webpsupport:0.14.1'//支持 WebP静态图时添加
+
+    implementation 'com.facebook.fresco:animated-gif:0.14.1' // 支持 GIF 动图时添加
 
 }
