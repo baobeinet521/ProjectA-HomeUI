@@ -43,25 +43,37 @@ public class HomeItemImageAdapter extends RecyclerView.Adapter<RecyclerView.View
         if (mContext == null) {
             mContext = parent.getContext();
         }
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_image_layout, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_image_layout, null, false);
         return new HomeItemImageAdapter.ItemImageHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        if(holder instanceof  ItemImageHolder){
-            loadImage(mImages.get(position),((ItemImageHolder) holder).mImageView);
+        if (holder instanceof ItemImageHolder) {
+            loadImage2(mImages.get(position), ((ItemImageHolder) holder).mImageView);
         }
 
     }
 
     @Override
     public int getItemCount() {
+        Log.d("HomeItemImageAdapter", "一共有几张图片  " + mImages.size());
         return mImages.size();
     }
 
 
-    public void loadImage(String url,SimpleDraweeView simpleDraweeView) {
+    public void loadImage2(String url, SimpleDraweeView simpleDraweeView) {
+        Uri uri = Uri.parse(url);
+//        sdv.setImageURI(uri);
+
+        DraweeController controller = Fresco.newDraweeControllerBuilder()
+                .setUri(uri)
+                .setAutoPlayAnimations(true)
+                .build();
+        simpleDraweeView.setController(controller);
+    }
+
+    public void loadImage(String url, SimpleDraweeView simpleDraweeView) {
         Uri uri = Uri.parse(url);
 
         PipelineDraweeControllerBuilder sdcb = Fresco.newDraweeControllerBuilder();

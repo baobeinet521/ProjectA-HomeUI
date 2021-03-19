@@ -19,10 +19,7 @@
             android:id="@+id/group_brief_header_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="1">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/title_text"
@@ -46,27 +43,29 @@
                 android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"/>
+                android:layout_marginLeft="20dp"
+                android:background="#23456123"/>
         </LinearLayout>
 
         <RelativeLayout
-            android:id="@+id/group_brief_body__layout"
+            android:id="@+id/group_brief_body_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/group_brief_header_layout">
+            android:layout_marginTop="10dp">
 
             <TextSwitcher
                 android:id="@+id/message_now"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true"
                 android:layout_toLeftOf="@+id/image_new"/>
 
             <ImageView
                 android:id="@+id/image_new"
                 android:layout_width="50dp"
                 android:layout_height="80dp"
+                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="20dp"
                 android:src="@mipmap/ic_apply_join" />
